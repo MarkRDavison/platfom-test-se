@@ -1,0 +1,27 @@
+﻿@model IEnumerable<DotNetCoreSqlDb.Models.Profile>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Profiles</h1>
+
+<p>
+    <a asp-action="Create"><button label=CreateNew name="createnewbutton">Create New</button></a>
+</p>
+<table class="table">
+<tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ID"><button label="Edit" name="editButton">Edit</button></a> 
+                <a asp-action="Details" asp-route-id="@item.ID"><button label="Details" name="detailsButton">Details</button></a> 
+                <a asp-action="Delete" asp-route-id="@item.ID"><button label="Delete" name="deleteButton">Delete</button></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
