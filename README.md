@@ -65,7 +65,7 @@ The following will be created:
 
 One manual step remaims and that is to set the deployment credentials
 ```
-az webapp deployment user set --user-name "some_user_id" --password "some_user_deployment_password"
+az webapp deployment user set --user-name "some_user_id" --password "some_user_deployment_password" --subscription "your_sub"
 ```
 To deploy your app to the infrastructure you'll need to add an addition git remote to your repo.  The instructions are printed at the end of the script. e.g.:
 
