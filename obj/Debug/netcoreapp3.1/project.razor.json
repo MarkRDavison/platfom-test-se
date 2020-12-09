@@ -1,5 +1,5 @@
 {
-  "FilePath": "c:\\dev\\platform-test-se2\\DotNetCoreSqlDb.csproj",
+  "FilePath": "c:\\dev\\platfom-test-se2\\DotNetCoreSqlDb.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-3.0",
     "LanguageVersion": "3.0",
@@ -14392,63 +14392,63 @@
   "RootNamespace": "DotNetCoreSqlDb",
   "Documents": [
     {
-      "FilePath": "c:\\dev\\platform-test-se2\\Views\\Shared\\Error.cshtml",
-      "TargetPath": "Views\\Shared\\Error.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\dev\\platform-test-se2\\Views\\Profiles\\Edit.cshtml",
-      "TargetPath": "Views\\Profiles\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\dev\\platform-test-se2\\Views\\Profiles\\Details.cshtml",
-      "TargetPath": "Views\\Profiles\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\dev\\platform-test-se2\\Views\\Profiles\\Index.cshtml",
-      "TargetPath": "Views\\Profiles\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\dev\\platform-test-se2\\Views\\_ViewStart.cshtml",
-      "TargetPath": "Views\\_ViewStart.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\dev\\platform-test-se2\\Views\\Home\\Index.cshtml",
-      "TargetPath": "Views\\Home\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\dev\\platform-test-se2\\Views\\Profiles\\Create.cshtml",
+      "FilePath": "c:\\dev\\platfom-test-se2\\Views\\Profiles\\Create.cshtml",
       "TargetPath": "Views\\Profiles\\Create.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\dev\\platform-test-se2\\Views\\_ViewImports.cshtml",
-      "TargetPath": "Views\\_ViewImports.cshtml",
+      "FilePath": "c:\\dev\\platfom-test-se2\\Views\\Profiles\\Edit.cshtml",
+      "TargetPath": "Views\\Profiles\\Edit.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\dev\\platform-test-se2\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
-      "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "FilePath": "c:\\dev\\platfom-test-se2\\Views\\Profiles\\Details.cshtml",
+      "TargetPath": "Views\\Profiles\\Details.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\dev\\platform-test-se2\\Views\\Home\\Privacy.cshtml",
-      "TargetPath": "Views\\Home\\Privacy.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\dev\\platform-test-se2\\Views\\Profiles\\Delete.cshtml",
+      "FilePath": "c:\\dev\\platfom-test-se2\\Views\\Profiles\\Delete.cshtml",
       "TargetPath": "Views\\Profiles\\Delete.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\dev\\platform-test-se2\\Views\\Shared\\_Layout.cshtml",
+      "FilePath": "c:\\dev\\platfom-test-se2\\Views\\Profiles\\Index.cshtml",
+      "TargetPath": "Views\\Profiles\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\dev\\platfom-test-se2\\Views\\Shared\\_Layout.cshtml",
       "TargetPath": "Views\\Shared\\_Layout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\dev\\platfom-test-se2\\Views\\Home\\Index.cshtml",
+      "TargetPath": "Views\\Home\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\dev\\platfom-test-se2\\Views\\_ViewImports.cshtml",
+      "TargetPath": "Views\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\dev\\platfom-test-se2\\Views\\Shared\\Error.cshtml",
+      "TargetPath": "Views\\Shared\\Error.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\dev\\platfom-test-se2\\Views\\Home\\Privacy.cshtml",
+      "TargetPath": "Views\\Home\\Privacy.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\dev\\platfom-test-se2\\Views\\_ViewStart.cshtml",
+      "TargetPath": "Views\\_ViewStart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\dev\\platfom-test-se2\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
       "FileKind": "mvc"
     }
   ],
