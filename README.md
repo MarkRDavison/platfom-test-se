@@ -67,11 +67,11 @@ One manual step remaims and that is to set the deployment credentials
 ```
 az webapp deployment user set --user-name "some_user_id" --password "some_user_deployment_password" --subscription "your_sub"
 ```
-To deploy your app to the infrastructure you'll need to add an addition git remote to your repo.  The instructions are printed at the end of the script. e.g.:
+To deploy your app to the infrastructure you'll need to add an addition git remote to your repo. More info [here](https://docs.microsoft.com/en-us/azure/app-service/scripts/cli-deploy-local-git). The instructions are printed at the end of the script. e.g.:
 
 ```
 git remote add azure "https://some_user_id@d-aue-quasar-interviewtest-your_name-asplan-app.scm.azurewebsites.net/d-aue-quasar-interviewtest-your_name-asplan-app.git"
 git push azure
 ```
 
-You will supply those deployment credential when you push your app the first time. 
+You will supply those deployment credentials when you push your app the first time. 
