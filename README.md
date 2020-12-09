@@ -1,25 +1,44 @@
----
-languages:
-- csharp
-- aspx-csharp
-page_type: sample
-description: "This is a sample application you can use to follow along w/ the Build a .NET Core and SQL Database web app in Azure Web Apps for Containers tutorial."
-products:
-- azure
-- aspnet-core
-- azure-app-service
----
+# Software Engineer in Platform code test
 
-# .NET Core MVC sample for Azure App Service
+This code is an example of a very .net application that implements a web app what talks to a web api and through to a DB. It's purpose is to present some part of an application that has profiles which information that the supposed app would record about a person - ie. Name, Address, email etc. The developer is no longer here and we need to complete the work to release this.
 
-This is a sample application that you can use to follow along with the tutorial at 
-[Build a .NET Core and SQL Database web app in Azure Web Apps for Containers](https://docs.microsoft.com/azure/app-service/containers/tutorial-dotnetcore-sqldb-app). 
+This code is very basic and is in a very poor state and not something we can release as is.
 
-## License
+## Challenge
 
-See [LICENSE](LICENSE.md).
+- How would you improve the code, so that we can **ship it** to our first customers?
+- What is wrong with it?
+- What is missing?
+- What should be cleaned up?  
 
-## Contributing
+We will be supporting this for a long time so we need to ensure that the code is in a state that this can be acheived.
+## Requirements
 
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
-  
+- This test needs .net core 3.1+ to run which you can download from [here](https://dotnet.microsoft.com/download).
+
+### To build the code use the command `dotnet build`
+
+e.g.
+
+```
+➜  dotnet build
+Microsoft (R) Build Engine version 16.8.0+126527ff1 for .NET
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Determining projects to restore...
+  All projects are up-to-date for restore.
+  DotNetCoreSqlDb -> C:\dev\test\bin\Debug\netcoreapp3.1\DotNetCoreSqlDb.dll
+  DotNetCoreSqlDb -> C:\dev\test\bin\Debug\netcoreapp3.1\DotNetCoreSqlDb.Views.dll
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:01.10
+
+➜  dotnet test
+  Determining projects to restore...
+  All projects are up-to-date for restore.
+C:\dev\test on  master[?!]
+
+ ```
