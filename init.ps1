@@ -1,5 +1,8 @@
 param (
     [parameter(Mandatory=$false)] 
+    $tearDown = $false,
+
+    [parameter(Mandatory=$false)] 
     $force = $false,
 
     [parameter(Mandatory=$true)] 
@@ -14,8 +17,6 @@ param (
     [parameter(Mandatory=$true)] 
     [SecureString] $sqlPassword
 )
-
-$subscriptionName = "pulsars"
 
 # login and set subscription
 az login
@@ -35,6 +36,33 @@ $acrName = "$namePrefix-$name-acr" -replace "-", ""
 
 $appServicePlanName = "$namePrefix-$name-asplan" 
 $webAppName = "$appServicePlanName-app" 
+
+$acrUsername = $null
+$acrPw = $null
+$acrLoginServer = $null
+$acrImageName = $null
+$grafanaContainerInstanceName = "$namePrefix-$name-grafana-ci"
+
+function CreateContainerInstance()
+{
+    Write-Output "Container Instance $grafanaContainerInstanceName"
+
+    $resource = (az container show --name $grafanaContainerInstanceName --resource-group $resourceGroupName )
+    if ($force -and $resource) {
+        Write-Output "exists. deleting"
+        az container delete --name $grafanaContainerInstanceName --resource-group $resourceGroupName
+        $resource = $null
+    } 
+
+    if (!$resource) {
+        Write-Output "doesn't exist. creating"
+        $resource = ( az container create --name $grafanaContainerInstanceName --resource-group $resourceGroupName --location $location --dns-name-label $grafanaContainerInstanceName --registry-username $acrUsername --registry-password $acrPw --registry-login-server $acrLoginServer --ports 3000 --image  $acrImageName)
+    }
+
+    Write-Output $resource
+    Write-Output "Grafana is running on"
+    az container show --name $containerInstanceName --resource-group $resourceGroupName --query "{FQDN:ipAddress.fqdn,ProvisioningState:provisioningState}"
+}
 
 function CreateWebapp()
 {
@@ -203,6 +231,15 @@ function CreateResourceGroup()
     Write-Output $resourceGroup
 }
 
+if ($tearDown) { 
+    $resourceGroup = (az group show --name $resourceGroupName)
+    Write-Output "deleting"
+    az group delete --name $resourceGroupName
+    $resourceGroup = $null
+    exit
+
+} 
+
 CreateResourceGroup
 CreateSqlServer
 CreateSqlDb
@@ -211,3 +248,4 @@ CreateContainerRegistry
 UploadGrafanaImage
 CreateAppServicePlan
 CreateWebapp
+CreateContainerInstance
