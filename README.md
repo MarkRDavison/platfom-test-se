@@ -56,12 +56,12 @@ There is a script (`init.ps1`) that can be used to create an apppropriate infrst
 
 The following will be created:
 
-- A resource group (*d-aue-quasar-interviewtest-wilfred-rg*)
-- A Sql Server (*d-aue-quasar-interviewtest-wilfred-sql*)
-- A Sql DB (*d-aue-quasar-interviewtest-wilfred-db (d-aue-quasar-interviewtest-wilfred-sql/d-aue-quasar-interviewtest-wilfred-db) with credentials your_name-admin/your_sql_password*)
+- A resource group (*d-aue-quasar-interviewtest-your_name-rg*)
+- A Sql Server (*d-aue-quasar-interviewtest-your_name-sql*)
+- A Sql DB (*d-aue-quasar-interviewtest-your_name-db (d-aue-quasar-interviewtest-your_name-sql/d-aue-quasar-interviewtest-your_name-db) with credentials your_name-admin/your_sql_password*)
 - A Container registry containing on repository with the [latest DockerHub image of grafana](https://hub.docker.com/r/grafana/grafana/)
-- A App Service Plan (*d-aue-quasar-interviewtest-wilfred-asplan*)
-- A Web App Service (*d-aue-quasar-interviewtest-wilfred-asplan-app*)
+- A App Service Plan (*d-aue-quasar-interviewtest-your_name-asplan*)
+- A Web App Service (*d-aue-quasar-interviewtest-your_name-asplan-app*)
 
 One manual step remaims and that is to set the deployment credentials
 ```
