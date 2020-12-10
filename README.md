@@ -1,16 +1,8 @@
 # Software Engineer in Platform code test
 
-This code is an example of a very .net basic application that implements a web app what talks to a web api and on to a DB. Its purpose is to present some part of an application that has user profiles which is information that the supposed app would record about a person - ie. Name, Address, Email etc. The developer is no longer here and we need to complete the work to release this.
+This code is an example of a very .net basic application that implements a web app which talks to a web api and on to a DB. Its purpose is to present some part of an application that has user profiles which is information that the supposed app would record about a person - ie. Name, Address, Email etc. The developer is no longer here and we need to complete the work to release this.
 
-This code is very basic state and not something we can release as is.
-
-## Challenge
-
-- How would you improve the code, so that we can **ship it** to our first customers?
-- What is wrong with it?
-- What is missing?
-- What should be cleaned up? 
-- We will be supporting this for a long time so we need to ensure that the code is in a state that this can be acheived. What will we need to add/change to make that sure we can?
+As a part of the exercise we will be asking you to make some changes to this application. We are also interested in your thoughts on whether we can ship it as is. Also if you were to own this application long term, what plans would you want for improvements.
 
 ## Requirements
 
