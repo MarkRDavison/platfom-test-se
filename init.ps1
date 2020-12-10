@@ -5,6 +5,9 @@ param (
     [parameter(Mandatory=$false)] 
     $force = $false,
 
+    [parameter(Mandatory=$false)] 
+    $tenant = "xxx.onmicrosoft.com",
+    
     [parameter(Mandatory=$true)] 
     $subscriptionName = "testsub",
 
@@ -19,7 +22,7 @@ param (
 )
 
 # login and set subscription
-az login
+az login --tenant $tenant
 az account set --subscription $subscriptionName
 
 $location= "AustraliaEast"
