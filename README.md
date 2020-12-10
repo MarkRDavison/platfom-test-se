@@ -4,9 +4,10 @@ This code is an example of a very .net basic application that implements a web a
 
 As a part of the exercise we will be asking you to make some changes to this application. We are also interested in your thoughts on whether we can ship it as is. Also if you were to own this application long term, what plans would you want for improvements.
 
-## Requirements
+## Prerequisites 
 
-- This test needs .net core 3.1+ to run which you can download from [here](https://dotnet.microsoft.com/download).
+- This application needs .net core 3.1+ to run which you can download from [here](https://dotnet.microsoft.com/download).
+- You will also need to install the [entity framework](https://docs.microsoft.com/en-us/ef/core/cli/dotnet)
 
 ### To build the code use the command `dotnet build`
 ---
@@ -49,7 +50,7 @@ dotnet ef migrations add InitalCreate
 dotnet ef database update
 ```
 
-### Deployment Infrastrastructure 
+### Deployment Infrastrastructure
 
 ---
 **NOTE** You'll need [Docker Desktop](https://www.docker.com/products/docker-desktop) installed to make this work. 
