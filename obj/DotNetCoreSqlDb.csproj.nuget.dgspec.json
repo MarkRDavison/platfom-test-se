@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\dev\\platfom-test-se2\\DotNetCoreSqlDb.csproj": {}
+    "C:\\dev\\platfom-test-se2\\DotNetCoreSqlDb.csproj": {}
   },
   "projects": {
-    "c:\\dev\\platfom-test-se2\\DotNetCoreSqlDb.csproj": {
+    "C:\\dev\\platfom-test-se2\\DotNetCoreSqlDb.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\dev\\platfom-test-se2\\DotNetCoreSqlDb.csproj",
+        "projectUniqueName": "C:\\dev\\platfom-test-se2\\DotNetCoreSqlDb.csproj",
         "projectName": "DotNetCoreSqlDb",
-        "projectPath": "c:\\dev\\platfom-test-se2\\DotNetCoreSqlDb.csproj",
+        "projectPath": "C:\\dev\\platfom-test-se2\\DotNetCoreSqlDb.csproj",
         "packagesPath": "C:\\Users\\PreetS.AzureAD\\.nuget\\packages\\",
-        "outputPath": "c:\\dev\\platfom-test-se2\\obj\\",
+        "outputPath": "C:\\dev\\platfom-test-se2\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\PreetS.AzureAD\\AppData\\Roaming\\NuGet\\NuGet.Config",

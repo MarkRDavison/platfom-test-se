@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "asLaUAflX87Pyt7iXCg4VYHGiGyYJrFRzi75StSMwXJyR0MUAl0uPyl/PQ8tvxxqaB5s3LLUIdnSCCFpVzQBAA==",
+  "dgSpecHash": "4AQY7irKY6L60UsZ+zEZll/8ZazXXskyWeUHZl1qkFYbvUXxJm9TkhJ80T6DZuZZgj2gJXsEIb72zEdlb5eZlg==",
   "success": true,
-  "projectFilePath": "c:\\dev\\platfom-test-se2\\DotNetCoreSqlDb.csproj",
+  "projectFilePath": "C:\\dev\\platfom-test-se2\\DotNetCoreSqlDb.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\PreetS.AzureAD\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.0\\microsoft.bcl.asyncinterfaces.1.1.0.nupkg.sha512",
     "C:\\Users\\PreetS.AzureAD\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.0\\microsoft.bcl.hashcode.1.1.0.nupkg.sha512",
