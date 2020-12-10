@@ -29,7 +29,7 @@ namespace DotNetCoreSqlDb
         {
             services.AddControllersWithViews();
             services.AddDbContext<MyDatabaseContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("MyDbConnection")));
+                    options.UseSqlite("Data Source=localdatabase.db"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

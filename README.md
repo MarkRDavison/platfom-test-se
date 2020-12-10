@@ -43,6 +43,20 @@ C:\dev\test on  master[?!]
 
  ```
 
+### Database 
+
+- You can recreate the db by [installing entity framework](https://docs.microsoft.com/en-us/ef/core/cli/dotnet):
+
+```
+# install & update Entity framework 
+dotnet tool install --global dotnet-ef
+dotnet tool update --global dotnet-ef
+
+rm -r Migrations
+dotnet ef migrations add InitalCreate
+dotnet ef database update
+
+
 ### Deployment Infrastrastructure 
 
 ---
