@@ -89,3 +89,9 @@ git push azure
 ```
 
 You will supply those deployment credentials when you push your app the first time. 
+
+You can tear down the infrastructure using:
+
+```
+.\init.ps1 -subscriptionName "your_sub" -name "your_name" -sqlPassword (ConvertTo-SecureString  -AsPlainText -Force "your_sql_password" -teardown $true)
+```
