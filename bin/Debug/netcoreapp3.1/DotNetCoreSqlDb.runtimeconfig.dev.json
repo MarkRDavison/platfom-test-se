@@ -1,8 +1,0 @@
-{
-  "runtimeOptions": {
-    "additionalProbingPaths": [
-      "C:\\Users\\PreetS.AzureAD\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\PreetS.AzureAD\\.nuget\\packages"
-    ]
-  }
-}
