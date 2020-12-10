@@ -55,7 +55,7 @@ dotnet tool update --global dotnet-ef
 rm -r Migrations
 dotnet ef migrations add InitalCreate
 dotnet ef database update
-
+```
 
 ### Deployment Infrastrastructure 
 
