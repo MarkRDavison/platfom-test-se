@@ -62,8 +62,8 @@ C:\dev\platfom-test-se2 on  master[?!]
 
 ```
 # install & update Entity framework 
-dotnet tool install --global dotnet-ef
-dotnet tool update --global dotnet-ef
+dotnet tool install --global dotnet-ef --version 3.1.3
+dotnet tool update --global dotnet-ef --version 3.1.3
 ```
 
 - you can recreate the db using this:
