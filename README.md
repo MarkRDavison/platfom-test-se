@@ -58,17 +58,23 @@ C:\dev\platfom-test-se2 on  master[?!]
 
 ### Database 
 
-- You can recreate the db by [installing entity framework](https://docs.microsoft.com/en-us/ef/core/cli/dotnet):
+- You need to [install the entity framework](https://docs.microsoft.com/en-us/ef/core/cli/dotnet):
 
 ```
 # install & update Entity framework 
 dotnet tool install --global dotnet-ef
 dotnet tool update --global dotnet-ef
+```
+
+- you can recreate the db using this:
+```
 
 rm -r Migrations
 dotnet ef migrations add InitalCreate
 dotnet ef database update
 ```
+
+- you can run the app using `dotnet run --project .\ProfilesApp\ProfilesApp.csproj`
 
 ### Deployment Infrastrastructure
 
