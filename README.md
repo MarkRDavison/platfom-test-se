@@ -14,25 +14,45 @@ As a part of the exercise we will be asking you to make some changes to this app
 e.g.
 
 ```
+C:\dev\platfom-test-se2 on  master[?!]
 ➜  dotnet build
 Microsoft (R) Build Engine version 16.8.0+126527ff1 for .NET
 Copyright (C) Microsoft Corporation. All rights reserved.
 
   Determining projects to restore...
   All projects are up-to-date for restore.
-  DotNetCoreSqlDb -> C:\dev\test\bin\Debug\netcoreapp3.1\DotNetCoreSqlDb.dll
-  DotNetCoreSqlDb -> C:\dev\test\bin\Debug\netcoreapp3.1\DotNetCoreSqlDb.Views.dll
+  ProfilesAppTests -> C:\dev\platfom-test-se2\ProfilesAppTests\bin\Debug\net5.0\ProfilesAppTests.dll
+  ProfilesApp -> C:\dev\platfom-test-se2\ProfilesApp\bin\Debug\netcoreapp3.1\ProfilesApp.dll
+  ProfilesApp -> C:\dev\platfom-test-se2\ProfilesApp\bin\Debug\netcoreapp3.1\ProfilesApp.Views.dll
 
 Build succeeded.
     0 Warning(s)
     0 Error(s)
 
-Time Elapsed 00:00:01.10
-
+Time Elapsed 00:00:02.82
+C:\dev\platfom-test-se2 on  master[?!]
 ➜  dotnet test
   Determining projects to restore...
   All projects are up-to-date for restore.
-C:\dev\test on  master[?!]
+  ProfilesAppTests -> C:\dev\platfom-test-se2\ProfilesAppTests\bin\Debug\net5.0\ProfilesAppTests.dll
+Test run for C:\dev\platfom-test-se2\ProfilesAppTests\bin\Debug\net5.0\ProfilesAppTests.dll (.NETCoreApp,Version=v5.0)
+Microsoft (R) Test Execution Command Line Tool Version 16.8.1
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+Starting test execution, please wait...
+A total of 1 test files matched the specified pattern.
+  Failed Test1 [30 ms]
+  Error Message:
+     Expected: False
+  But was:  True
+
+  Stack Trace:
+     at ProfilesAppTests.Tests.Test1() in c:\dev\platfom-test-se2\ProfilesAppTests\UnitTest1.cs:line 15
+
+
+Failed!  - Failed:     1, Passed:     0, Skipped:     0, Total:     1, Duration: 30 ms - ProfilesAppTests.dll (net5.0)
+C:\dev\platfom-test-se2 on  master[?!]
+➜
 
  ```
 
