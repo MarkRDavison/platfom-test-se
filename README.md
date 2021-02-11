@@ -4,7 +4,7 @@ This code is an example of a very .net basic application that implements a web a
 
 As a part of the exercise we will be asking you to make some changes to this application. We are also interested in your thoughts on whether we can ship it as is. Also if you were to own this application long term, what plans would you want for improvements.
 
-## Prerequisites 
+## Prerequisites
 
 - This application needs .net core 3.1+ to run which you can download from [here](https://dotnet.microsoft.com/download).
 - You will also need to install the [entity framework](https://docs.microsoft.com/en-us/ef/core/cli/dotnet)
@@ -56,12 +56,12 @@ C:\dev\platfom-test-se2 on  master[?!]
 
  ```
 
-### Database 
+### Database
 
 - You need to [install the entity framework](https://docs.microsoft.com/en-us/ef/core/cli/dotnet):
 
 ```
-# install & update Entity framework 
+# install & update Entity framework
 dotnet tool install --global dotnet-ef --version 3.1.3
 dotnet tool update --global dotnet-ef --version 3.1.3
 ```
@@ -74,17 +74,17 @@ dotnet ef migrations add InitalCreate
 dotnet ef database update
 ```
 
-- you can run the app using `dotnet run --project .\ProfilesApp\ProfilesApp.csproj`
+- you can run the app using `dotnet run --project ./ProfilesApp/ProfilesApp.csproj`
 
 ### Deployment Infrastrastructure
 
 ---
-**NOTE** You'll need [Docker Desktop](https://www.docker.com/products/docker-desktop) installed to make this work. 
+**NOTE** You'll need [Docker Desktop](https://www.docker.com/products/docker-desktop) installed to make this work.
 
 There is a script (`init.ps1`) that can be used to create an apppropriate infrstructure.
 
 ```
-.\init.ps1 -subscriptionName "your_sub" -name "your_name" -sqlPassword (ConvertTo-SecureString  -AsPlainText -Force "your_sql_password")
+./init.ps1 -subscriptionName "your_sub" -name "your_name" -sqlPassword (ConvertTo-SecureString  -AsPlainText -Force "your_sql_password")
 ```
 
 The following will be created:
@@ -107,10 +107,10 @@ git remote add azure "https://some_user_id@d-aue-quasar-interviewtest-your_name-
 git push azure
 ```
 
-You will supply those deployment credentials when you push your app the first time. 
+You will supply those deployment credentials when you push your app the first time.
 
 You can tear down the infrastructure using:
 
 ```
-.\init.ps1 -subscriptionName "your_sub" -name "your_name" -sqlPassword (ConvertTo-SecureString  -AsPlainText -Force "your_sql_password") -teardown $true
+./init.ps1 -subscriptionName "your_sub" -name "your_name" -sqlPassword (ConvertTo-SecureString  -AsPlainText -Force "your_sql_password") -teardown $true
 ```
