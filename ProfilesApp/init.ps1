@@ -40,6 +40,8 @@ $acrName = "$namePrefix-$name-acr" -replace "-", ""
 $appServicePlanName = "$namePrefix-$name-asplan" 
 $webAppName = "$appServicePlanName-app" 
 
+Write-Host "acr name: $acrName"
+
 $acrUsername = $null
 $acrPw = $null
 $acrLoginServer = $null
@@ -58,13 +60,19 @@ function CreateContainerInstance()
     } 
 
     if (!$resource) {
+        # TODO: Variable scopes
+        $acrUsername = (az acr credential show -n  $acrName --query "username")
+        $acrPw = (az acr credential show -n  $acrName --query "passwords[0].value")
+        $acrloginserver=(az acr show --name $acrName --query loginServer)
+        $acrImageName="$acrloginserver/grafana:v1"
         Write-Output "doesn't exist. creating"
+        Write-Host "az container create --name $grafanaContainerInstanceName --resource-group $resourceGroupName --location $location --dns-name-label $grafanaContainerInstanceName --registry-username $acrUsername --registry-password $acrPw --registry-login-server $acrLoginServer --ports 3000 --image  $acrImageName" -ForegroundColor Cyan
         $resource = ( az container create --name $grafanaContainerInstanceName --resource-group $resourceGroupName --location $location --dns-name-label $grafanaContainerInstanceName --registry-username $acrUsername --registry-password $acrPw --registry-login-server $acrLoginServer --ports 3000 --image  $acrImageName)
     }
 
     Write-Output $resource
     Write-Output "Grafana is running on"
-    az container show --name $containerInstanceName --resource-group $resourceGroupName --query "{FQDN:ipAddress.fqdn,ProvisioningState:provisioningState}"
+    az container show --name $grafanaContainerInstanceName --resource-group $resourceGroupName --query "{FQDN:ipAddress.fqdn,ProvisioningState:provisioningState}"
 }
 
 function CreateWebapp()
@@ -88,18 +96,19 @@ function CreateWebapp()
     $dbConnectionString = $dbConnectionString -replace "<username>", $sqlUsername  
     $dbConnectionString = $dbConnectionString -replace "<password>", $sqlPassword  
     az webapp config connection-string set --resource-group $resourceGroupName --name $webAppName --settings MyDbConnection=$dbConnectionString --connection-string-type SQLAzure
-
+    az webapp deployment source config-local-git --resource-group $resourceGroupName --name $webAppName
     $gitUrl = (az webapp deployment source config-local-git --resource-group $resourceGroupName --name $webAppName --query url)
 
     # this is set at the subscription level
-    #az webapp deployment user set --user-name "..." --password "...."
-
+    az webapp deployment user set --user-name "serko-user" --password "serko-password"
+    
     Write-Output $resource    
     
-     Write-Output "Add the following remote to your applictions and push" 
+    Write-Output "Add the following remote to your applictions and push" 
     Write-Output "\n"
+    Write-Output "git remote rm azure"
     Write-Output "git remote add azure $gitUrl"
-    Write-Output "git push azure"    
+    Write-Output "git push azure"
 }
 
 function CreateAppServicePlan()
@@ -131,11 +140,14 @@ function UploadGrafanaImage()
     $acrloginserver=(az acr show --name $acrName --query loginServer)
     write-Output "Login server $acrloginserver"
 
-    $acrUsername = (az acr credential show -n  dauequasarinterviewtesttest2acr --query "username")
-    $acrPw = (az acr credential show -n  dauequasarinterviewtesttest2acr --query "passwords[0].value")
-     
+    $acrUsername = (az acr credential show -n  $acrName --query "username")
+    $acrPw = (az acr credential show -n  $acrName --query "passwords[0].value")
+
     $acrImageName="$acrloginserver/grafana:v1"
     Write-Output "Acr Image Name: $acrImageName"
+    
+    Write-Output "ACR username: $acrUsername"
+    Write-Output "ACR pwd: $acrPw"
     
     Write-Output "Uploading image"
     docker tag $dockerHubImageName $acrImageName

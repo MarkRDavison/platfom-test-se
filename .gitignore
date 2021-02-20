@@ -1,0 +1,10 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/ProfilesApp/bin/Debug/netcoreapp3.1
+/ProfilesApp/obj
+/ProfilesAppTests/bin/Debug/net5.0
+/ProfilesAppTests/obj/Debug/net5.0
+/ProfilesAppTests/obj
+/.vs/ProfilesApp/v16/.suo
