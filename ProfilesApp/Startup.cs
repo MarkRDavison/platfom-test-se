@@ -31,8 +31,10 @@ namespace DotNetCoreSqlDb
             var connectionString = Configuration.GetConnectionString("MyDbConnection");
             if (string.IsNullOrEmpty(connectionString)) {
                 connectionString = Configuration.GetConnectionString("MySqlLiteConnection");
+                services.AddDbContext<MyDatabaseContext>(options => options.UseSqlite(connectionString));
+            } else {
+                services.AddDbContext<MyDatabaseContext>(options => options.UseSqlServer(connectionString));
             }
-            services.AddDbContext<MyDatabaseContext>(options => options.UseSqlite(connectionString));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
