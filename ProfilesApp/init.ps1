@@ -18,7 +18,7 @@ param (
     $owner = "preet",
 
     [parameter(Mandatory=$true)] 
-    [SecureString] $sqlPassword
+    [string] $sqlPassword
 )
 
 # login and set subscription
@@ -145,9 +145,6 @@ function UploadGrafanaImage()
 
     $acrImageName="$acrloginserver/grafana:v1"
     Write-Output "Acr Image Name: $acrImageName"
-    
-    Write-Output "ACR username: $acrUsername"
-    Write-Output "ACR pwd: $acrPw"
     
     Write-Output "Uploading image"
     docker tag $dockerHubImageName $acrImageName
