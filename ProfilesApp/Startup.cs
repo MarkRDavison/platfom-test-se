@@ -22,6 +22,7 @@ namespace DotNetCoreSqlDb
         {
             services.AddControllersWithViews();
             var connectionString = Configuration.GetConnectionString("MyDbConnection");
+
             if (string.IsNullOrEmpty(connectionString)) {
                 connectionString = Configuration.GetConnectionString("MySqlLiteConnection");
                 services.AddDbContext<MyDatabaseContext>(options => options.UseSqlite(connectionString));
