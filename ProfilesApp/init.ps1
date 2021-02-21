@@ -18,8 +18,9 @@ param (
     $owner = "preet",
 
     [parameter(Mandatory=$true)] 
-    [string] $sqlPassword
+    [SecureString] $sqlPassword
 )
+
 
 # login and set subscription
 az login --tenant $tenant
@@ -92,9 +93,15 @@ function CreateWebapp()
         $resource = (az webapp create --name $webAppName --resource-group $resourceGroupName  --plan $appServicePlanName --deployment-local-git --runtime '"DOTNETCORE|3.1"')
     }
 
-    $dbConnectionString = (az sql db show-connection-string --client ado.net --server $sqlServerName --name "MyDbConnection")
+    $dbConnectionString = (az sql db show-connection-string --client ado.net --server $sqlServerName --name $sqlDbName)
     $dbConnectionString = $dbConnectionString -replace "<username>", $sqlUsername  
-    $dbConnectionString = $dbConnectionString -replace "<password>", $sqlPassword  
+
+    # Unsecuring the string
+    $BSTR = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($sqlPassword)
+    $unsecured = [System.Runtime.InteropServices.Marshal]::PtrToStringAuto($BSTR)
+    $dbConnectionString = $dbConnectionString -replace "<password>", $unsecured  
+    [Runtime.InteropServices.Marshal]::ZeroFreeBSTR($BSTR)
+
     az webapp config connection-string set --resource-group $resourceGroupName --name $webAppName --settings MyDbConnection=$dbConnectionString --connection-string-type SQLAzure
     az webapp deployment source config-local-git --resource-group $resourceGroupName --name $webAppName
     $gitUrl = (az webapp deployment source config-local-git --resource-group $resourceGroupName --name $webAppName --query url)
