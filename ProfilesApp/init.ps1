@@ -191,6 +191,7 @@ function AddSqlFirewallRule()
     $myClientIp = ((Invoke-WebRequest -uri "http://ifconfig.me/ip").Content)
     Write-Output "Adding Client Ip Address $myClientIp to Sql Server Firewall"
     az sql server firewall-rule create --name "$env:ComputerName." --server $sqlServerName --resource-group $resourceGroupName --start-ip-address=$myClientIp --end-ip-address=$myClientIp
+    az sql server firewall-rule create --name "Azure Internal" --server $sqlServerName --resource-group $resourceGroupName --start-ip-address="0.0.0.0" --end-ip-address="0.0.0.0"
 }
 
 function CreateSqlDb()
