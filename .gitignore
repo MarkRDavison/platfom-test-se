@@ -10,3 +10,4 @@
 /.vs/ProfilesApp/v16/.suo
 /.vs/ProfilesApp/v16/TestStore/0
 /ProfilesApp/bin/MyDatabaseConnection/netcoreapp3.1
+*.env
