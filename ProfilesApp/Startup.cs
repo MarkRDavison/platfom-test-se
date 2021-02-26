@@ -42,10 +42,7 @@ namespace DotNetCoreSqlDb
             };
 
             services
-                .AddControllersWithViews()
-                .AddJsonOptions(options =>
-                {
-                });
+                .AddControllersWithViews();
 
             foreach (var connectionStringInfo in connectionStringInfoList)
             {
@@ -71,7 +68,7 @@ namespace DotNetCoreSqlDb
                 //app.UseHsts();
             }
 
-            //app.UseHttpsRedirection();
+            app.UseHttpsRedirection();
             app.UseStaticFiles();
 
             app.UseRouting();
