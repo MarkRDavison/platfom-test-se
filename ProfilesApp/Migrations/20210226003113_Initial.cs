@@ -2,7 +2,7 @@
 
 namespace ProfilesApp.Migrations
 {
-    public partial class InitalCreate : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

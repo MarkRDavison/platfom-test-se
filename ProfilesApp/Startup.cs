@@ -6,11 +6,25 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using DotNetCoreSqlDb.Models;
 using System.Linq;
+using System;
+using System.Collections.Generic;
 
 namespace DotNetCoreSqlDb
 {
     public class Startup
     {
+        class ConnectionStringInfo
+        {
+            public ConnectionStringInfo(string connectionString, Action<DbContextOptionsBuilder, string> optionsCallback)
+            {
+                ConnectionString = connectionString;
+                OptionsCallback = optionsCallback;
+            }
+
+            public string ConnectionString { get; }
+            public Action<DbContextOptionsBuilder, string> OptionsCallback { get; }
+        };
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -21,16 +35,25 @@ namespace DotNetCoreSqlDb
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
-            var connectionString = Configuration.GetConnectionString("MyDbConnection");
+            var connectionStringInfoList = new List<ConnectionStringInfo> {
+                new ConnectionStringInfo("MyDbConnection", (options, connStr) => options.UseSqlServer(connStr)),
+                new ConnectionStringInfo("MyLocalSqlConnection", (options, connStr) => options.UseSqlServer(connStr)),
+                new ConnectionStringInfo("MySqlLiteConnection", (options, connStr) => options.UseSqlite(connStr)),
+            };
 
-            if (string.IsNullOrEmpty(connectionString)) {
-                connectionString = Configuration.GetConnectionString("MySqlLiteConnection");
-                services.AddDbContext<MyDatabaseContext>(options => options.UseSqlite(connectionString));
-            } else {
-                services.AddDbContext<MyDatabaseContext>(options => {
-                    options.UseSqlServer(connectionString);
+            services
+                .AddControllersWithViews()
+                .AddJsonOptions(options =>
+                {
                 });
+
+            foreach (var connectionStringInfo in connectionStringInfoList)
+            {
+                var connectionString = Configuration.GetConnectionString(connectionStringInfo.ConnectionString);
+                if (string.IsNullOrEmpty(connectionString)) continue;
+
+                services.AddDbContext<MyDatabaseContext>(options => connectionStringInfo.OptionsCallback(options, connectionString));
+                break;
             }
         }
 
@@ -48,8 +71,6 @@ namespace DotNetCoreSqlDb
                 //app.UseHsts();
             }
 
-            applyMigrations(db);
-
             //app.UseHttpsRedirection();
             app.UseStaticFiles();
 
@@ -63,17 +84,6 @@ namespace DotNetCoreSqlDb
                     name: "default",
                     pattern: "{controller=Profiles}/{action=Index}/{id?}");
             });
-        }
-
-        private static void applyMigrations(MyDatabaseContext db)
-        {
-            var pending = db.Database.GetPendingMigrations().ToList();
-            var applied = db.Database.GetAppliedMigrations().ToList();
-            var needsApplying = pending.Where(p => !applied.Contains(p)).ToList();
-            if (needsApplying.Any())
-            {
-                db.Database.Migrate();
-            }
         }
     }
 }
