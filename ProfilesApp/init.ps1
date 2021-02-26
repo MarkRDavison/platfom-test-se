@@ -67,7 +67,6 @@ function CreateContainerInstance()
         $acrloginserver=(az acr show --name $acrName --query loginServer)
         $acrImageName="$acrloginserver/grafana:v1"
         Write-Output "doesn't exist. creating"
-        Write-Host "az container create --name $grafanaContainerInstanceName --resource-group $resourceGroupName --location $location --dns-name-label $grafanaContainerInstanceName --registry-username $acrUsername --registry-password $acrPw --registry-login-server $acrLoginServer --ports 3000 --image  $acrImageName" -ForegroundColor Cyan
         $resource = ( az container create --name $grafanaContainerInstanceName --resource-group $resourceGroupName --location $location --dns-name-label $grafanaContainerInstanceName --registry-username $acrUsername --registry-password $acrPw --registry-login-server $acrLoginServer --ports 3000 --image  $acrImageName)
     }
 
